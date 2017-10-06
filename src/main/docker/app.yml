@@ -1,0 +1,19 @@
+version: '2'
+services:
+    auresto-app:
+        image: auresto
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://auresto-mysql:3306/auresto?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=auresto-elasticsearch:9300
+        ports:
+            - 8080:8080
+    auresto-mysql:
+        extends:
+            file: mysql.yml
+            service: auresto-mysql
+    auresto-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: auresto-elasticsearch
