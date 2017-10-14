@@ -1,0 +1,178 @@
+entity Location{
+                address String,
+                latitude Double,
+                longitude Double
+}
+
+entity City {
+                name String,
+                postCode String
+}
+
+entity Province {
+                name String,
+                code String
+}
+
+entity Country {
+                code String,
+                name String,
+                telCode String,
+}
+
+entity Restaurant {
+                code String,
+                name String,
+                description TextBlob,
+                openTime ZonedDateTime,
+                closeTime ZonedDateTime
+}
+
+entity RestaurantType{
+                code String,
+                name String
+}
+
+entity Menu{
+                title String,
+                date ZonedDateTime
+}
+
+entity Formula{
+                title String,
+                price Double
+}
+
+entity FormulaType{
+                code String,
+                name String
+}
+
+entity Recipe{
+                name String,
+                description String,
+                comment String,
+                price Double
+}
+
+entity RecipeType{
+                code String,
+                name String
+}
+
+entity Reservation{
+                code String,
+                name String,
+                reserveDate ZonedDateTime,
+                reserveForDate ZonedDateTime
+}
+
+entity Order{
+                code String,
+                date ZonedDateTime
+}
+
+entity OrderType{
+                code String,
+                name String
+}
+
+entity OrderStatus{
+                code String,
+                name String
+}
+
+entity Table{
+                code String,
+                maxPlaceNum Integer,
+                takenPlaceNum Integer,
+                window Boolean,
+                outside Boolean,
+                floor Integer,
+                available Boolean
+}
+
+entity Photo {
+                code String,
+                name String,
+                image ImageBlob
+}
+
+entity User {
+                firstName String,
+                middleName String,
+                lastName String,
+                login String,
+                password String,
+                gender String
+}
+
+
+entity Gender{
+    code String,
+    name String
+}
+
+entity Profile{
+                code String,
+                name String
+}
+
+entity Bill{
+                code String,
+                date ZonedDateTime,
+}
+
+entity BillStatus{
+                code String,
+                name String
+}
+
+
+relationship OneToOne{
+                User{photo} to Photo,
+                Restaurant{location} to Location
+}
+
+relationship OneToMany {
+                Restaurant{type} to RestaurantType,
+                Restaurant{photo} to Photo,
+                Restaurant{menu} to Menu,
+                Restaurant{table} to Table,
+                Menu{photo} to Photo,
+                Menu{formula} to Formula,
+                Formula{photo} to Photo,
+                Formula{recipe} to Recipe,
+                Recipe{photo} to Photo,
+                Bill{order} to Order,
+                Order{formula} to Formula,
+                Order{recipe} to Recipe,
+                User{order} to Order,
+                User{reservation} to Reservation
+}
+
+relationship ManyToOne{
+                Order{restaurant} to Restaurant,
+                Order{table} to Table,
+                Order{commander} to User,
+                Order{type} to OrderType,
+                Order{commander} to User,
+                Order{status} to OrderStatus,
+                Recipe{type} to RecipeType,
+                User{gender} to Gender,
+                User{profile} to Profile,
+                Restaurant{owner} to User,
+                Table{restaurant} to Restaurant,
+                Location{city} to City,
+                City{province} to Province,
+                Province{country} to Country,
+                Formula{type} to FormulaType,
+                Formula{entree} to Recipe,
+                Formula{dish} to Recipe,
+                Formula{dessert} to Recipe,
+                Bill{status} to BillStatus,
+                Reservation{commander} to User,
+                Reservation{status} to OrderStatus,
+                Reservation{restaurant} to Restaurant,
+                Reservation{table} to Table
+}
