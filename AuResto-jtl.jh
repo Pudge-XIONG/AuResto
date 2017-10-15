@@ -1,26 +1,26 @@
-entity Location{
+entity AuResto_AuResto_Location{
                 address String,
                 latitude Double,
                 longitude Double
 }
 
-entity City {
+entity AuResto_City {
                 name String,
                 postCode String
 }
 
-entity Province {
+entity AuResto_Province {
                 name String,
                 code String
 }
 
-entity Country {
+entity AuResto_Country {
                 code String,
                 name String,
                 telCode String,
 }
 
-entity Restaurant {
+entity AuResto_Restaurant {
                 code String,
                 name String,
                 description TextBlob,
@@ -28,61 +28,61 @@ entity Restaurant {
                 closeTime ZonedDateTime
 }
 
-entity RestaurantType{
+entity AuResto_RestaurantType{
                 code String,
                 name String
 }
 
-entity Menu{
+entity AuResto_Menu{
                 title String,
                 date ZonedDateTime
 }
 
-entity Formula{
+entity AuResto_Formula{
                 title String,
                 price Double
 }
 
-entity FormulaType{
+entity AuResto_AuResto_FormulaType{
                 code String,
                 name String
 }
 
-entity Recipe{
+entity AuResto_Recipe{
                 name String,
                 description String,
                 comment String,
                 price Double
 }
 
-entity RecipeType{
+entity AuResto_RecipeType{
                 code String,
                 name String
 }
 
-entity Reservation{
+entity AuResto_Reservation{
                 code String,
                 name String,
                 reserveDate ZonedDateTime,
                 reserveForDate ZonedDateTime
 }
 
-entity Order{
+entity AuResto_Order{
                 code String,
                 date ZonedDateTime
 }
 
-entity OrderType{
+entity AuResto_OrderType{
                 code String,
                 name String
 }
 
-entity OrderStatus{
+entity AuResto_OrderStatus{
                 code String,
                 name String
 }
 
-entity Table{
+entity AuResto_Table{
                 code String,
                 maxPlaceNum Integer,
                 takenPlaceNum Integer,
@@ -92,94 +92,92 @@ entity Table{
                 available Boolean
 }
 
-entity Photo {
+entity AuResto_Photo {
                 code String,
                 name String,
                 image ImageBlob
 }
 
-entity People {
+entity AuResto_User {
                 firstName String,
                 middleName String,
                 lastName String,
                 login String,
                 password String,
-                gender String
 }
 
 
-entity Gender{
+entity AuResto_Gender{
     code String,
     name String
 }
 
-entity Profile{
+entity AuResto_Profile{
                 code String,
                 name String
 }
 
-entity Bill{
+entity AuResto_Bill{
                 code String,
                 date ZonedDateTime,
 }
 
-entity BillStatus{
+entity AuResto_BillStatus{
                 code String,
                 name String
 }
 
 
 relationship OneToOne{
-                People{photo} to Photo,
-                Restaurant{location} to Location
+                AuResto_User{photo} to AuResto_Photo,
+                AuResto_Restaurant{location} to AuResto_Location
 }
 
 relationship OneToMany {
-                Restaurant{type} to RestaurantType,
-                Restaurant{photo} to Photo,
-                Restaurant{menu} to Menu,
-                Restaurant{table} to Table,
-                Menu{photo} to Photo,
-                Menu{formula} to Formula,
-                Formula{photo} to Photo,
-                Formula{recipe} to Recipe,
-                Recipe{photo} to Photo,
-                Bill{order} to Order,
-                Order{formula} to Formula,
-                Order{recipe} to Recipe,
-                People{order} to Order,
-                People{reservation} to Reservation
+                AuResto_Restaurant{type} to AuResto_RestaurantType,
+                AuResto_Restaurant{photo} to AuResto_Photo,
+                AuResto_Restaurant{menu} to AuResto_Menu,
+                AuResto_Restaurant{table} to AuResto_Table,
+                AuResto_Menu{photo} to AuResto_Photo,
+                AuResto_Menu{formula} to AuResto_Formula,
+                AuResto_Formula{photo} to AuResto_Photo,
+                AuResto_Formula{recipe} to AuResto_Recipe,
+                AuResto_Recipe{photo} to AuResto_Photo,
+                AuResto_Bill{order} to AuResto_Order,
+                AuResto_Order{formula} to AuResto_Formula,
+                AuResto_Order{recipe} to AuResto_Recipe,
+                AuResto_User{order} to AuResto_Order,
+                AuResto_User{reservation} to AuResto_Reservation
 }
 
 relationship ManyToOne{
-                Order{restaurant} to Restaurant,
-                Order{table} to Table,
-                Order{commander} to People,
-                Order{type} to OrderType,
-                Order{commander} to People,
-                Order{status} to OrderStatus,
-                Recipe{type} to RecipeType,
-                People{gender} to Gender,
-                People{profile} to Profile,
-                Restaurant{owner} to People,
-                Table{restaurant} to Restaurant,
-                Location{city} to City,
-                City{province} to Province,
-                Province{country} to Country,
-                Formula{type} to FormulaType,
-                Formula{entree} to Recipe,
-                Formula{dish} to Recipe,
-                Formula{dessert} to Recipe,
-                Bill{status} to BillStatus,
-                Reservation{commander} to People,
-                Reservation{status} to OrderStatus,
-                Reservation{restaurant} to Restaurant,
-                Reservation{table} to Table
+                AuResto_Order{restaurant} to AuResto_Restaurant,
+                AuResto_Order{table} to AuResto_Table,
+                AuResto_Order{commander} to AuResto_User,
+                AuResto_Order{type} to AuResto_OrderType,
+                AuResto_Order{commander} to AuResto_User,
+                AuResto_Order{status} to AuResto_OrderStatus,
+                AuResto_Recipe{type} to AuResto_RecipeType,
+                AuResto_User{gender} to AuResto_Gender,
+                AuResto_User{profile} to AuResto_Profile,
+                AuResto_Restaurant{owner} to AuResto_User,
+                AuResto_Location{city} to AuResto_City,
+                AuResto_City{province} to AuResto_Province,
+                AuResto_Province{country} to AuResto_Country,
+                AuResto_Formula{type} to AuResto_AuResto_FormulaType,
+                AuResto_Formula{entree} to AuResto_Recipe,
+                AuResto_Formula{dish} to AuResto_Recipe,
+                AuResto_Formula{dessert} to AuResto_Recipe,
+                AuResto_Bill{status} to AuResto_BillStatus,
+                AuResto_Reservation{commander} to AuResto_User,
+                AuResto_Reservation{status} to AuResto_OrderStatus,
+                AuResto_Reservation{restaurant} to AuResto_Restaurant,
+                AuResto_Reservation{table} to AuResto_Table
 }
 
 // Set pagination options
 //paginate JobHistory, Employee with infinite-scroll
-paginate People, Order, Reservation, Bill with pagination
+paginate AuResto_User, AuResto_Order, AuResto_Reservation, AuResto_Bill with pagination
 
 dto * with mapstruct
 
