@@ -1,0 +1,71 @@
+
+<div *ngIf="auRestoOrder">
+    <h2><span jhiTranslate="auRestoApp.auRestoOrder.detail.title">Au Resto Order</span> {{auRestoOrder.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.code">Code</span></dt>
+        <dd>
+            <span>{{auRestoOrder.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.date">Date</span></dt>
+        <dd>
+            <span>{{auRestoOrder.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.restaurant">Restaurant</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.restaurant">
+                <a [routerLink]="['/au-resto-restaurant-au-resto', auRestoOrder.restaurant?.id]">{{auRestoOrder.restaurant?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.table">Table</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.table">
+                <a [routerLink]="['/au-resto-table-au-resto', auRestoOrder.table?.id]">{{auRestoOrder.table?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.commander">Commander</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.commander">
+                <a [routerLink]="['/au-resto-user-au-resto', auRestoOrder.commander?.id]">{{auRestoOrder.commander?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.type">Type</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.type">
+                <a [routerLink]="['/au-resto-order-type-au-resto', auRestoOrder.type?.id]">{{auRestoOrder.type?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.status">Status</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.status">
+                <a [routerLink]="['/au-resto-order-status-au-resto', auRestoOrder.status?.id]">{{auRestoOrder.status?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.auRestoUser">Au Resto User</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.auRestoUser">
+                <a [routerLink]="['/au-resto-user-au-resto', auRestoOrder.auRestoUser?.id]">{{auRestoOrder.auRestoUser?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoOrder.auRestoBill">Au Resto Bill</span></dt>
+        <dd>
+            <div *ngIf="auRestoOrder.auRestoBill">
+                <a [routerLink]="['/au-resto-bill-au-resto', auRestoOrder.auRestoBill?.id]">{{auRestoOrder.auRestoBill?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-order-au-resto/'+ auRestoOrder.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

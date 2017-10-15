@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoFormulaType" : {
+            "home": {
+                "title": "AuRestoFormulaTypes",
+                "createLabel": "Créer un nouveau Au Resto Formula Type",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Formula Type",
+                "search": "Recherche pour Au Resto Formula Type"
+            },
+            "created": "Un nouveau Au Resto Formula Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Formula Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Formula Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Formula Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Formula Type"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "auRestoApp": {
+        "auRestoPhoto" : {
+            "home": {
+                "title": "AuRestoPhotos",
+                "createLabel": "Créer un nouveau Au Resto Photo",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Photo",
+                "search": "Recherche pour Au Resto Photo"
+            },
+            "created": "Un nouveau Au Resto Photo a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Photo avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Photo avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Photo {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Photo"
+            },
+            "code": "Code",
+            "name": "Name",
+            "image": "Image",
+            "auRestoRestaurant": "Au Resto Restaurant",
+            "auRestoMenu": "Au Resto Menu",
+            "auRestoFormula": "Au Resto Formula",
+            "auRestoRecipe": "Au Resto Recipe"
+        }
+    }
+}

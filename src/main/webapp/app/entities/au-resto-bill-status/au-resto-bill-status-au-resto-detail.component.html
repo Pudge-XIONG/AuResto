@@ -1,0 +1,29 @@
+
+<div *ngIf="auRestoBillStatus">
+    <h2><span jhiTranslate="auRestoApp.auRestoBillStatus.detail.title">Au Resto Bill Status</span> {{auRestoBillStatus.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoBillStatus.code">Code</span></dt>
+        <dd>
+            <span>{{auRestoBillStatus.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoBillStatus.name">Name</span></dt>
+        <dd>
+            <span>{{auRestoBillStatus.name}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-bill-status-au-resto/'+ auRestoBillStatus.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

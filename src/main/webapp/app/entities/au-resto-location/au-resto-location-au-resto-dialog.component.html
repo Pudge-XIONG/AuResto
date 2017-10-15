@@ -1,0 +1,47 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoLocationLabel" jhiTranslate="auRestoApp.auRestoLocation.home.createOrEditLabel">Create or edit a Au Resto Location</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoLocation.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoLocation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoLocation.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="auRestoLocation.address"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoLocation.latitude" for="field_latitude">Latitude</label>
+            <input type="number" class="form-control" name="latitude" id="field_latitude"
+                [(ngModel)]="auRestoLocation.latitude"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoLocation.longitude" for="field_longitude">Longitude</label>
+            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                [(ngModel)]="auRestoLocation.longitude"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoLocation.city" for="field_city">City</label>
+            <select class="form-control" id="field_city" name="city" [(ngModel)]="auRestoLocation.city" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoCityOption.id === auRestoLocation.city?.id ? auRestoLocation.city : auRestoCityOption" *ngFor="let auRestoCityOption of aurestocities; trackBy: trackAuRestoCityById">{{auRestoCityOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

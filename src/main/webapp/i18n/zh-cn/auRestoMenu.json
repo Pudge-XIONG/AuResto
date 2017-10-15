@@ -1,0 +1,26 @@
+{
+    "auRestoApp": {
+        "auRestoMenu" : {
+            "home": {
+                "title": "Au Resto Menus",
+                "createLabel": "Create a new Au Resto Menu",
+                "createOrEditLabel": "Create or edit a Au Resto Menu",
+                "search": "Search for Au Resto Menu"
+            },
+            "created": "A new Au Resto Menu is created with identifier {{ param }}",
+            "updated": "A Au Resto Menu is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Menu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Menu {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Menu"
+            },
+            "title": "Title",
+            "date": "Date",
+            "auRestoRestaurant": "Au Resto Restaurant",
+            "photo": "Photo",
+            "formula": "Formula"
+        }
+    }
+}

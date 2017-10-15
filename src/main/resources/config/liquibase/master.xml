@@ -5,6 +5,42 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162507_added_entity_AuRestoLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162508_added_entity_AuRestoCity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162509_added_entity_AuRestoProvince.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162510_added_entity_AuRestoCountry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162511_added_entity_AuRestoRestaurant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162512_added_entity_AuRestoRestaurantType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162513_added_entity_AuRestoMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162514_added_entity_AuRestoFormula.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162515_added_entity_AuRestoFormulaType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162516_added_entity_AuRestoRecipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162517_added_entity_AuRestoRecipeType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162518_added_entity_AuRestoReservation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162519_added_entity_AuRestoOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162520_added_entity_AuRestoOrderType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162521_added_entity_AuRestoOrderStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162522_added_entity_AuRestoTable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162523_added_entity_AuRestoPhoto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162524_added_entity_AuRestoUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162525_added_entity_AuRestoGender.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162526_added_entity_AuRestoProfile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162527_added_entity_AuRestoBill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162528_added_entity_AuRestoBillStatus.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20171015162507_added_entity_constraints_AuRestoLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162508_added_entity_constraints_AuRestoCity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162509_added_entity_constraints_AuRestoProvince.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162511_added_entity_constraints_AuRestoRestaurant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162512_added_entity_constraints_AuRestoRestaurantType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162513_added_entity_constraints_AuRestoMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162514_added_entity_constraints_AuRestoFormula.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162516_added_entity_constraints_AuRestoRecipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162518_added_entity_constraints_AuRestoReservation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162519_added_entity_constraints_AuRestoOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162522_added_entity_constraints_AuRestoTable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162523_added_entity_constraints_AuRestoPhoto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162524_added_entity_constraints_AuRestoUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171015162527_added_entity_constraints_AuRestoBill.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

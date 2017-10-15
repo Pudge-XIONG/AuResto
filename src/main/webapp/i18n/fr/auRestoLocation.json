@@ -1,0 +1,25 @@
+{
+    "auRestoApp": {
+        "auRestoLocation" : {
+            "home": {
+                "title": "AuRestoLocations",
+                "createLabel": "Créer un nouveau Au Resto Location",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Location",
+                "search": "Recherche pour Au Resto Location"
+            },
+            "created": "Un nouveau Au Resto Location a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Location avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Location avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Location {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Location"
+            },
+            "address": "Address",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "city": "City"
+        }
+    }
+}

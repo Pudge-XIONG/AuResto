@@ -1,0 +1,24 @@
+{
+    "auRestoApp": {
+        "auRestoProvince" : {
+            "home": {
+                "title": "Au Resto Provinces",
+                "createLabel": "Create a new Au Resto Province",
+                "createOrEditLabel": "Create or edit a Au Resto Province",
+                "search": "Search for Au Resto Province"
+            },
+            "created": "A new Au Resto Province is created with identifier {{ param }}",
+            "updated": "A Au Resto Province is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Province is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Province {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Province"
+            },
+            "name": "Name",
+            "code": "Code",
+            "country": "Country"
+        }
+    }
+}

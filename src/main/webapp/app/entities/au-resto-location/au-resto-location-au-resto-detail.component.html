@@ -1,0 +1,39 @@
+
+<div *ngIf="auRestoLocation">
+    <h2><span jhiTranslate="auRestoApp.auRestoLocation.detail.title">Au Resto Location</span> {{auRestoLocation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoLocation.address">Address</span></dt>
+        <dd>
+            <span>{{auRestoLocation.address}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoLocation.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{auRestoLocation.latitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoLocation.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{auRestoLocation.longitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoLocation.city">City</span></dt>
+        <dd>
+            <div *ngIf="auRestoLocation.city">
+                <a [routerLink]="['/au-resto-city-au-resto', auRestoLocation.city?.id]">{{auRestoLocation.city?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-location-au-resto/'+ auRestoLocation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

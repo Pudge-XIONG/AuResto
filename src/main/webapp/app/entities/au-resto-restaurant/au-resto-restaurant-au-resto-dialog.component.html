@@ -1,0 +1,68 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoRestaurantLabel" jhiTranslate="auRestoApp.auRestoRestaurant.home.createOrEditLabel">Create or edit a Au Resto Restaurant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoRestaurant.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoRestaurant.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="auRestoRestaurant.code"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="auRestoRestaurant.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.description" for="field_description">Description</label>
+            <textarea class="form-control" name="description" id="field_description"
+                [(ngModel)]="auRestoRestaurant.description"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.openTime" for="field_openTime">Open Time</label>
+            <div class="d-flex">
+                <input id="field_openTime" type="datetime-local" class="form-control" name="openTime" [(ngModel)]="auRestoRestaurant.openTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.closeTime" for="field_closeTime">Close Time</label>
+            <div class="d-flex">
+                <input id="field_closeTime" type="datetime-local" class="form-control" name="closeTime" [(ngModel)]="auRestoRestaurant.closeTime"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.location" for="field_location">Location</label>
+            <select class="form-control" id="field_location" name="location" [(ngModel)]="auRestoRestaurant.location">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoLocationOption.id === auRestoRestaurant.location?.id ? auRestoRestaurant.location : auRestoLocationOption" *ngFor="let auRestoLocationOption of locations; trackBy: trackAuRestoLocationById">{{auRestoLocationOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRestaurant.owner" for="field_owner">Owner</label>
+            <select class="form-control" id="field_owner" name="owner" [(ngModel)]="auRestoRestaurant.owner" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoUserOption.id === auRestoRestaurant.owner?.id ? auRestoRestaurant.owner : auRestoUserOption" *ngFor="let auRestoUserOption of aurestousers; trackBy: trackAuRestoUserById">{{auRestoUserOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

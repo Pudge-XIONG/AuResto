@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoProfile" : {
+            "home": {
+                "title": "AuRestoProfiles",
+                "createLabel": "Créer un nouveau Au Resto Profile",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Profile",
+                "search": "Recherche pour Au Resto Profile"
+            },
+            "created": "Un nouveau Au Resto Profile a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Profile avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Profile avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Profile {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Profile"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "auRestoApp": {
+        "auRestoCity" : {
+            "home": {
+                "title": "Au Resto Cities",
+                "createLabel": "Create a new Au Resto City",
+                "createOrEditLabel": "Create or edit a Au Resto City",
+                "search": "Search for Au Resto City"
+            },
+            "created": "A new Au Resto City is created with identifier {{ param }}",
+            "updated": "A Au Resto City is updated with identifier {{ param }}",
+            "deleted": "A Au Resto City is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto City {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto City"
+            },
+            "name": "Name",
+            "postCode": "Post Code",
+            "province": "Province"
+        }
+    }
+}

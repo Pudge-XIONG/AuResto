@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoGender" : {
+            "home": {
+                "title": "Au Resto Genders",
+                "createLabel": "Create a new Au Resto Gender",
+                "createOrEditLabel": "Create or edit a Au Resto Gender",
+                "search": "Search for Au Resto Gender"
+            },
+            "created": "A new Au Resto Gender is created with identifier {{ param }}",
+            "updated": "A Au Resto Gender is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Gender is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Gender {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Gender"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

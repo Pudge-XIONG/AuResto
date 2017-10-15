@@ -1,0 +1,30 @@
+{
+    "auRestoApp": {
+        "auRestoReservation" : {
+            "home": {
+                "title": "AuRestoReservations",
+                "createLabel": "Créer un nouveau Au Resto Reservation",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Reservation",
+                "search": "Recherche pour Au Resto Reservation"
+            },
+            "created": "Un nouveau Au Resto Reservation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Reservation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Reservation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Reservation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Reservation"
+            },
+            "code": "Code",
+            "name": "Name",
+            "reserveDate": "Reserve Date",
+            "reserveForDate": "Reserve For Date",
+            "commander": "Commander",
+            "status": "Status",
+            "restaurant": "Restaurant",
+            "table": "Table",
+            "auRestoUser": "Au Resto User"
+        }
+    }
+}

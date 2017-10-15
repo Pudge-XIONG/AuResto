@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AuRestoFormula.
+    -->
+    <changeSet id="20171015162514-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="au_resto_menu_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_au_resto_menu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_menu"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_formula_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="entree_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_entree_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_recipe"/>
+
+        <addForeignKeyConstraint baseColumnNames="dish_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_dish_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_recipe"/>
+
+        <addForeignKeyConstraint baseColumnNames="dessert_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_dessert_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_recipe"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_order_id"
+                                 baseTableName="au_resto_formula"
+                                 constraintName="fk_au_resto_formula_au_resto_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_order"/>
+
+    </changeSet>
+</databaseChangeLog>

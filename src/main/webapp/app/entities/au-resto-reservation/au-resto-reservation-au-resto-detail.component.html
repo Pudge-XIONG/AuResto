@@ -1,0 +1,67 @@
+
+<div *ngIf="auRestoReservation">
+    <h2><span jhiTranslate="auRestoApp.auRestoReservation.detail.title">Au Resto Reservation</span> {{auRestoReservation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.code">Code</span></dt>
+        <dd>
+            <span>{{auRestoReservation.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.name">Name</span></dt>
+        <dd>
+            <span>{{auRestoReservation.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.reserveDate">Reserve Date</span></dt>
+        <dd>
+            <span>{{auRestoReservation.reserveDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.reserveForDate">Reserve For Date</span></dt>
+        <dd>
+            <span>{{auRestoReservation.reserveForDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.commander">Commander</span></dt>
+        <dd>
+            <div *ngIf="auRestoReservation.commander">
+                <a [routerLink]="['/au-resto-user-au-resto', auRestoReservation.commander?.id]">{{auRestoReservation.commander?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.status">Status</span></dt>
+        <dd>
+            <div *ngIf="auRestoReservation.status">
+                <a [routerLink]="['/au-resto-order-status-au-resto', auRestoReservation.status?.id]">{{auRestoReservation.status?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.restaurant">Restaurant</span></dt>
+        <dd>
+            <div *ngIf="auRestoReservation.restaurant">
+                <a [routerLink]="['/au-resto-restaurant-au-resto', auRestoReservation.restaurant?.id]">{{auRestoReservation.restaurant?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.table">Table</span></dt>
+        <dd>
+            <div *ngIf="auRestoReservation.table">
+                <a [routerLink]="['/au-resto-table-au-resto', auRestoReservation.table?.id]">{{auRestoReservation.table?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoReservation.auRestoUser">Au Resto User</span></dt>
+        <dd>
+            <div *ngIf="auRestoReservation.auRestoUser">
+                <a [routerLink]="['/au-resto-user-au-resto', auRestoReservation.auRestoUser?.id]">{{auRestoReservation.auRestoUser?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-reservation-au-resto/'+ auRestoReservation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

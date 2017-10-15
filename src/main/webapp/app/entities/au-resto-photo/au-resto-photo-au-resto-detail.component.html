@@ -1,0 +1,62 @@
+
+<div *ngIf="auRestoPhoto">
+    <h2><span jhiTranslate="auRestoApp.auRestoPhoto.detail.title">Au Resto Photo</span> {{auRestoPhoto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.code">Code</span></dt>
+        <dd>
+            <span>{{auRestoPhoto.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.name">Name</span></dt>
+        <dd>
+            <span>{{auRestoPhoto.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.image">Image</span></dt>
+        <dd>
+            <div *ngIf="auRestoPhoto.image">
+                <a (click)="openFile(auRestoPhoto.imageContentType, auRestoPhoto.image)">
+                    <img [src]="'data:' + auRestoPhoto.imageContentType + ';base64,' + auRestoPhoto.image" style="max-width: 100%;" alt="auRestoPhoto image"/>
+                </a>
+                {{auRestoPhoto.imageContentType}}, {{byteSize(auRestoPhoto.image)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.auRestoRestaurant">Au Resto Restaurant</span></dt>
+        <dd>
+            <div *ngIf="auRestoPhoto.auRestoRestaurant">
+                <a [routerLink]="['/au-resto-restaurant-au-resto', auRestoPhoto.auRestoRestaurant?.id]">{{auRestoPhoto.auRestoRestaurant?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.auRestoMenu">Au Resto Menu</span></dt>
+        <dd>
+            <div *ngIf="auRestoPhoto.auRestoMenu">
+                <a [routerLink]="['/au-resto-menu-au-resto', auRestoPhoto.auRestoMenu?.id]">{{auRestoPhoto.auRestoMenu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.auRestoFormula">Au Resto Formula</span></dt>
+        <dd>
+            <div *ngIf="auRestoPhoto.auRestoFormula">
+                <a [routerLink]="['/au-resto-formula-au-resto', auRestoPhoto.auRestoFormula?.id]">{{auRestoPhoto.auRestoFormula?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoPhoto.auRestoRecipe">Au Resto Recipe</span></dt>
+        <dd>
+            <div *ngIf="auRestoPhoto.auRestoRecipe">
+                <a [routerLink]="['/au-resto-recipe-au-resto', auRestoPhoto.auRestoRecipe?.id]">{{auRestoPhoto.auRestoRecipe?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-photo-au-resto/'+ auRestoPhoto.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,86 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoOrderLabel" jhiTranslate="auRestoApp.auRestoOrder.home.createOrEditLabel">Create or edit a Au Resto Order</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoOrder.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoOrder.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="auRestoOrder.code"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.date" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="auRestoOrder.date"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.restaurant" for="field_restaurant">Restaurant</label>
+            <select class="form-control" id="field_restaurant" name="restaurant" [(ngModel)]="auRestoOrder.restaurant" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRestaurantOption.id === auRestoOrder.restaurant?.id ? auRestoOrder.restaurant : auRestoRestaurantOption" *ngFor="let auRestoRestaurantOption of aurestorestaurants; trackBy: trackAuRestoRestaurantById">{{auRestoRestaurantOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.table" for="field_table">Table</label>
+            <select class="form-control" id="field_table" name="table" [(ngModel)]="auRestoOrder.table" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoTableOption.id === auRestoOrder.table?.id ? auRestoOrder.table : auRestoTableOption" *ngFor="let auRestoTableOption of aurestotables; trackBy: trackAuRestoTableById">{{auRestoTableOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.commander" for="field_commander">Commander</label>
+            <select class="form-control" id="field_commander" name="commander" [(ngModel)]="auRestoOrder.commander" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoUserOption.id === auRestoOrder.commander?.id ? auRestoOrder.commander : auRestoUserOption" *ngFor="let auRestoUserOption of aurestousers; trackBy: trackAuRestoUserById">{{auRestoUserOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.type" for="field_type">Type</label>
+            <select class="form-control" id="field_type" name="type" [(ngModel)]="auRestoOrder.type" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoOrderTypeOption.id === auRestoOrder.type?.id ? auRestoOrder.type : auRestoOrderTypeOption" *ngFor="let auRestoOrderTypeOption of aurestoordertypes; trackBy: trackAuRestoOrderTypeById">{{auRestoOrderTypeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" [(ngModel)]="auRestoOrder.status" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoOrderStatusOption.id === auRestoOrder.status?.id ? auRestoOrder.status : auRestoOrderStatusOption" *ngFor="let auRestoOrderStatusOption of aurestoorderstatuses; trackBy: trackAuRestoOrderStatusById">{{auRestoOrderStatusOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.auRestoUser" for="field_auRestoUser">Au Resto User</label>
+            <select class="form-control" id="field_auRestoUser" name="auRestoUser" [(ngModel)]="auRestoOrder.auRestoUser" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoUserOption.id === auRestoOrder.auRestoUser?.id ? auRestoOrder.auRestoUser : auRestoUserOption" *ngFor="let auRestoUserOption of aurestousers; trackBy: trackAuRestoUserById">{{auRestoUserOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoOrder.auRestoBill" for="field_auRestoBill">Au Resto Bill</label>
+            <select class="form-control" id="field_auRestoBill" name="auRestoBill" [(ngModel)]="auRestoOrder.auRestoBill" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoBillOption.id === auRestoOrder.auRestoBill?.id ? auRestoOrder.auRestoBill : auRestoBillOption" *ngFor="let auRestoBillOption of aurestobills; trackBy: trackAuRestoBillById">{{auRestoBillOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

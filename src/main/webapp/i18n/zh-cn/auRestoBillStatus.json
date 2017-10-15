@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoBillStatus" : {
+            "home": {
+                "title": "Au Resto Bill Statuses",
+                "createLabel": "Create a new Au Resto Bill Status",
+                "createOrEditLabel": "Create or edit a Au Resto Bill Status",
+                "search": "Search for Au Resto Bill Status"
+            },
+            "created": "A new Au Resto Bill Status is created with identifier {{ param }}",
+            "updated": "A Au Resto Bill Status is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Bill Status is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Bill Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Bill Status"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

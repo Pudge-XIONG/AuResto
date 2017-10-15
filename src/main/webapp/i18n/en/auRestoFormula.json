@@ -1,0 +1,31 @@
+{
+    "auRestoApp": {
+        "auRestoFormula" : {
+            "home": {
+                "title": "Au Resto Formulas",
+                "createLabel": "Create a new Au Resto Formula",
+                "createOrEditLabel": "Create or edit a Au Resto Formula",
+                "search": "Search for Au Resto Formula"
+            },
+            "created": "A new Au Resto Formula is created with identifier {{ param }}",
+            "updated": "A Au Resto Formula is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Formula is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Formula {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Formula"
+            },
+            "title": "Title",
+            "price": "Price",
+            "auRestoMenu": "Au Resto Menu",
+            "photo": "Photo",
+            "recipe": "Recipe",
+            "type": "Type",
+            "entree": "Entree",
+            "dish": "Dish",
+            "dessert": "Dessert",
+            "auRestoOrder": "Au Resto Order"
+        }
+    }
+}

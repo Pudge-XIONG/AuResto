@@ -1,0 +1,113 @@
+<div>
+    <h2>
+        <span jhiTranslate="auRestoApp.auRestoReservation.home.title">Au Resto Reservations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-au-resto-reservation-au-resto" [routerLink]="['/', { outlets: { popup: ['au-resto-reservation-au-resto-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="auRestoApp.auRestoReservation.home.createLabel">
+            Create new Au Resto Reservation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'auRestoApp.auRestoReservation.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="auRestoReservations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="code"><span jhiTranslate="auRestoApp.auRestoReservation.code">Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="auRestoApp.auRestoReservation.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="reserveDate"><span jhiTranslate="auRestoApp.auRestoReservation.reserveDate">Reserve Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="reserveForDate"><span jhiTranslate="auRestoApp.auRestoReservation.reserveForDate">Reserve For Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="commander.id"><span jhiTranslate="auRestoApp.auRestoReservation.commander">Commander</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status.id"><span jhiTranslate="auRestoApp.auRestoReservation.status">Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="restaurant.id"><span jhiTranslate="auRestoApp.auRestoReservation.restaurant">Restaurant</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="table.id"><span jhiTranslate="auRestoApp.auRestoReservation.table">Table</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="auRestoUser.id"><span jhiTranslate="auRestoApp.auRestoReservation.auRestoUser">Au Resto User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let auRestoReservation of auRestoReservations ;trackBy: trackId">
+                <td><a [routerLink]="['../au-resto-reservation-au-resto', auRestoReservation.id ]">{{auRestoReservation.id}}</a></td>
+                <td>{{auRestoReservation.code}}</td>
+                <td>{{auRestoReservation.name}}</td>
+                <td>{{auRestoReservation.reserveDate | date:'medium'}}</td>
+                <td>{{auRestoReservation.reserveForDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="auRestoReservation.commander">
+                        <a [routerLink]="['../au-resto-user-au-resto', auRestoReservation.commander?.id ]" >{{auRestoReservation.commander?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoReservation.status">
+                        <a [routerLink]="['../au-resto-order-status-au-resto', auRestoReservation.status?.id ]" >{{auRestoReservation.status?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoReservation.restaurant">
+                        <a [routerLink]="['../au-resto-restaurant-au-resto', auRestoReservation.restaurant?.id ]" >{{auRestoReservation.restaurant?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoReservation.table">
+                        <a [routerLink]="['../au-resto-table-au-resto', auRestoReservation.table?.id ]" >{{auRestoReservation.table?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoReservation.auRestoUser">
+                        <a [routerLink]="['../au-resto-user-au-resto', auRestoReservation.auRestoUser?.id ]" >{{auRestoReservation.auRestoUser?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../au-resto-reservation-au-resto', auRestoReservation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'au-resto-reservation-au-resto/'+ auRestoReservation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'au-resto-reservation-au-resto/'+ auRestoReservation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="auRestoReservations && auRestoReservations.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

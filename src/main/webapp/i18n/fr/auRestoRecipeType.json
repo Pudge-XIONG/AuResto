@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoRecipeType" : {
+            "home": {
+                "title": "AuRestoRecipeTypes",
+                "createLabel": "Créer un nouveau Au Resto Recipe Type",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Recipe Type",
+                "search": "Recherche pour Au Resto Recipe Type"
+            },
+            "created": "Un nouveau Au Resto Recipe Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Recipe Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Recipe Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Recipe Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Recipe Type"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

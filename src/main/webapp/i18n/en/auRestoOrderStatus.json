@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoOrderStatus" : {
+            "home": {
+                "title": "Au Resto Order Statuses",
+                "createLabel": "Create a new Au Resto Order Status",
+                "createOrEditLabel": "Create or edit a Au Resto Order Status",
+                "search": "Search for Au Resto Order Status"
+            },
+            "created": "A new Au Resto Order Status is created with identifier {{ param }}",
+            "updated": "A Au Resto Order Status is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Order Status is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Order Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Order Status"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

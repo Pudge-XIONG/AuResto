@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AuRestoUser.
+    -->
+    <changeSet id="20171015162524-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="photo_id"
+                                 baseTableName="au_resto_user"
+                                 constraintName="fk_au_resto_user_photo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_photo"/>
+
+        <addForeignKeyConstraint baseColumnNames="gender_id"
+                                 baseTableName="au_resto_user"
+                                 constraintName="fk_au_resto_user_gender_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_gender"/>
+
+        <addForeignKeyConstraint baseColumnNames="profile_id"
+                                 baseTableName="au_resto_user"
+                                 constraintName="fk_au_resto_user_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_profile"/>
+
+    </changeSet>
+</databaseChangeLog>

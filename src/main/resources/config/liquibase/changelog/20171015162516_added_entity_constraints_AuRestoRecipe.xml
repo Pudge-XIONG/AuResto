@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AuRestoRecipe.
+    -->
+    <changeSet id="20171015162516-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="au_resto_formula_id"
+                                 baseTableName="au_resto_recipe"
+                                 constraintName="fk_au_resto_recipe_au_resto_formula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_formula"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="au_resto_recipe"
+                                 constraintName="fk_au_resto_recipe_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_recipe_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_order_id"
+                                 baseTableName="au_resto_recipe"
+                                 constraintName="fk_au_resto_recipe_au_resto_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_order"/>
+
+    </changeSet>
+</databaseChangeLog>

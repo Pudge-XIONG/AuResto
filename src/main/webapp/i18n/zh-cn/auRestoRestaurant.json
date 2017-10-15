@@ -1,0 +1,32 @@
+{
+    "auRestoApp": {
+        "auRestoRestaurant" : {
+            "home": {
+                "title": "Au Resto Restaurants",
+                "createLabel": "Create a new Au Resto Restaurant",
+                "createOrEditLabel": "Create or edit a Au Resto Restaurant",
+                "search": "Search for Au Resto Restaurant"
+            },
+            "created": "A new Au Resto Restaurant is created with identifier {{ param }}",
+            "updated": "A Au Resto Restaurant is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Restaurant is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Restaurant {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Restaurant"
+            },
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "openTime": "Open Time",
+            "closeTime": "Close Time",
+            "location": "Location",
+            "type": "Type",
+            "photo": "Photo",
+            "menu": "Menu",
+            "table": "Table",
+            "owner": "Owner"
+        }
+    }
+}

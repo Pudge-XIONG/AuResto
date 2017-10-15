@@ -1,0 +1,24 @@
+{
+    "auRestoApp": {
+        "auRestoRestaurantType" : {
+            "home": {
+                "title": "Au Resto Restaurant Types",
+                "createLabel": "Create a new Au Resto Restaurant Type",
+                "createOrEditLabel": "Create or edit a Au Resto Restaurant Type",
+                "search": "Search for Au Resto Restaurant Type"
+            },
+            "created": "A new Au Resto Restaurant Type is created with identifier {{ param }}",
+            "updated": "A Au Resto Restaurant Type is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Restaurant Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Restaurant Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Restaurant Type"
+            },
+            "code": "Code",
+            "name": "Name",
+            "auRestoRestaurant": "Au Resto Restaurant"
+        }
+    }
+}

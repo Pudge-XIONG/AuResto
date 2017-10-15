@@ -1,0 +1,77 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoFormulaLabel" jhiTranslate="auRestoApp.auRestoFormula.home.createOrEditLabel">Create or edit a Au Resto Formula</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoFormula.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoFormula.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="auRestoFormula.title"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="auRestoFormula.price"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.auRestoMenu" for="field_auRestoMenu">Au Resto Menu</label>
+            <select class="form-control" id="field_auRestoMenu" name="auRestoMenu" [(ngModel)]="auRestoFormula.auRestoMenu" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoMenuOption.id === auRestoFormula.auRestoMenu?.id ? auRestoFormula.auRestoMenu : auRestoMenuOption" *ngFor="let auRestoMenuOption of aurestomenus; trackBy: trackAuRestoMenuById">{{auRestoMenuOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.type" for="field_type">Type</label>
+            <select class="form-control" id="field_type" name="type" [(ngModel)]="auRestoFormula.type" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoFormulaTypeOption.id === auRestoFormula.type?.id ? auRestoFormula.type : auRestoFormulaTypeOption" *ngFor="let auRestoFormulaTypeOption of aurestoformulatypes; trackBy: trackAuRestoFormulaTypeById">{{auRestoFormulaTypeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.entree" for="field_entree">Entree</label>
+            <select class="form-control" id="field_entree" name="entree" [(ngModel)]="auRestoFormula.entree" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRecipeOption.id === auRestoFormula.entree?.id ? auRestoFormula.entree : auRestoRecipeOption" *ngFor="let auRestoRecipeOption of aurestorecipes; trackBy: trackAuRestoRecipeById">{{auRestoRecipeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.dish" for="field_dish">Dish</label>
+            <select class="form-control" id="field_dish" name="dish" [(ngModel)]="auRestoFormula.dish" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRecipeOption.id === auRestoFormula.dish?.id ? auRestoFormula.dish : auRestoRecipeOption" *ngFor="let auRestoRecipeOption of aurestorecipes; trackBy: trackAuRestoRecipeById">{{auRestoRecipeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.dessert" for="field_dessert">Dessert</label>
+            <select class="form-control" id="field_dessert" name="dessert" [(ngModel)]="auRestoFormula.dessert" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRecipeOption.id === auRestoFormula.dessert?.id ? auRestoFormula.dessert : auRestoRecipeOption" *ngFor="let auRestoRecipeOption of aurestorecipes; trackBy: trackAuRestoRecipeById">{{auRestoRecipeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoFormula.auRestoOrder" for="field_auRestoOrder">Au Resto Order</label>
+            <select class="form-control" id="field_auRestoOrder" name="auRestoOrder" [(ngModel)]="auRestoFormula.auRestoOrder" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoOrderOption.id === auRestoFormula.auRestoOrder?.id ? auRestoFormula.auRestoOrder : auRestoOrderOption" *ngFor="let auRestoOrderOption of aurestoorders; trackBy: trackAuRestoOrderById">{{auRestoOrderOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

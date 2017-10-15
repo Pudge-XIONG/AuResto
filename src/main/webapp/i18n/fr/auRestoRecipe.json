@@ -1,0 +1,29 @@
+{
+    "auRestoApp": {
+        "auRestoRecipe" : {
+            "home": {
+                "title": "AuRestoRecipes",
+                "createLabel": "Créer un nouveau Au Resto Recipe",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Recipe",
+                "search": "Recherche pour Au Resto Recipe"
+            },
+            "created": "Un nouveau Au Resto Recipe a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Recipe avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Recipe avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Recipe {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Recipe"
+            },
+            "name": "Name",
+            "description": "Description",
+            "comment": "Comment",
+            "price": "Price",
+            "auRestoFormula": "Au Resto Formula",
+            "photo": "Photo",
+            "type": "Type",
+            "auRestoOrder": "Au Resto Order"
+        }
+    }
+}

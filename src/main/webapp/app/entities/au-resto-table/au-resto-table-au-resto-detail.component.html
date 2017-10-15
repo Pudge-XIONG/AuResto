@@ -1,0 +1,55 @@
+
+<div *ngIf="auRestoTable">
+    <h2><span jhiTranslate="auRestoApp.auRestoTable.detail.title">Au Resto Table</span> {{auRestoTable.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.code">Code</span></dt>
+        <dd>
+            <span>{{auRestoTable.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.maxPlaceNum">Max Place Num</span></dt>
+        <dd>
+            <span>{{auRestoTable.maxPlaceNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.takenPlaceNum">Taken Place Num</span></dt>
+        <dd>
+            <span>{{auRestoTable.takenPlaceNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.window">Window</span></dt>
+        <dd>
+            <span>{{auRestoTable.window}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.outside">Outside</span></dt>
+        <dd>
+            <span>{{auRestoTable.outside}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.floor">Floor</span></dt>
+        <dd>
+            <span>{{auRestoTable.floor}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.available">Available</span></dt>
+        <dd>
+            <span>{{auRestoTable.available}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoTable.auRestoRestaurant">Au Resto Restaurant</span></dt>
+        <dd>
+            <div *ngIf="auRestoTable.auRestoRestaurant">
+                <a [routerLink]="['/au-resto-restaurant-au-resto', auRestoTable.auRestoRestaurant?.id]">{{auRestoTable.auRestoRestaurant?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-table-au-resto/'+ auRestoTable.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

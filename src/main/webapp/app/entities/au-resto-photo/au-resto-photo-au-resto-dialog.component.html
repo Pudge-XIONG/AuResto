@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoPhotoLabel" jhiTranslate="auRestoApp.auRestoPhoto.home.createOrEditLabel">Create or edit a Au Resto Photo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoPhoto.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoPhoto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="auRestoPhoto.code"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="auRestoPhoto.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.image" for="field_image">Image</label>
+            <div>
+                <img [src]="'data:' + auRestoPhoto.imageContentType + ';base64,' + auRestoPhoto.image" style="max-height: 100px;" *ngIf="auRestoPhoto.image" alt="auRestoPhoto image"/>
+                <div *ngIf="auRestoPhoto.image" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{auRestoPhoto.imageContentType}}, {{byteSize(auRestoPhoto.image)}}</span>
+                    <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_image" (change)="setFileData($event, auRestoPhoto, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                [(ngModel)]="auRestoPhoto.image"  />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                [(ngModel)]="auRestoPhoto.imageContentType" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.auRestoRestaurant" for="field_auRestoRestaurant">Au Resto Restaurant</label>
+            <select class="form-control" id="field_auRestoRestaurant" name="auRestoRestaurant" [(ngModel)]="auRestoPhoto.auRestoRestaurant" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRestaurantOption.id === auRestoPhoto.auRestoRestaurant?.id ? auRestoPhoto.auRestoRestaurant : auRestoRestaurantOption" *ngFor="let auRestoRestaurantOption of aurestorestaurants; trackBy: trackAuRestoRestaurantById">{{auRestoRestaurantOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.auRestoMenu" for="field_auRestoMenu">Au Resto Menu</label>
+            <select class="form-control" id="field_auRestoMenu" name="auRestoMenu" [(ngModel)]="auRestoPhoto.auRestoMenu" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoMenuOption.id === auRestoPhoto.auRestoMenu?.id ? auRestoPhoto.auRestoMenu : auRestoMenuOption" *ngFor="let auRestoMenuOption of aurestomenus; trackBy: trackAuRestoMenuById">{{auRestoMenuOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.auRestoFormula" for="field_auRestoFormula">Au Resto Formula</label>
+            <select class="form-control" id="field_auRestoFormula" name="auRestoFormula" [(ngModel)]="auRestoPhoto.auRestoFormula" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoFormulaOption.id === auRestoPhoto.auRestoFormula?.id ? auRestoPhoto.auRestoFormula : auRestoFormulaOption" *ngFor="let auRestoFormulaOption of aurestoformulas; trackBy: trackAuRestoFormulaById">{{auRestoFormulaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoPhoto.auRestoRecipe" for="field_auRestoRecipe">Au Resto Recipe</label>
+            <select class="form-control" id="field_auRestoRecipe" name="auRestoRecipe" [(ngModel)]="auRestoPhoto.auRestoRecipe" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRecipeOption.id === auRestoPhoto.auRestoRecipe?.id ? auRestoPhoto.auRestoRecipe : auRestoRecipeOption" *ngFor="let auRestoRecipeOption of aurestorecipes; trackBy: trackAuRestoRecipeById">{{auRestoRecipeOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

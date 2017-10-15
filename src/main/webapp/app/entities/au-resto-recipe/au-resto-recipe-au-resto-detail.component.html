@@ -1,0 +1,55 @@
+
+<div *ngIf="auRestoRecipe">
+    <h2><span jhiTranslate="auRestoApp.auRestoRecipe.detail.title">Au Resto Recipe</span> {{auRestoRecipe.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.name">Name</span></dt>
+        <dd>
+            <span>{{auRestoRecipe.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.description">Description</span></dt>
+        <dd>
+            <span>{{auRestoRecipe.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.comment">Comment</span></dt>
+        <dd>
+            <span>{{auRestoRecipe.comment}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.price">Price</span></dt>
+        <dd>
+            <span>{{auRestoRecipe.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.auRestoFormula">Au Resto Formula</span></dt>
+        <dd>
+            <div *ngIf="auRestoRecipe.auRestoFormula">
+                <a [routerLink]="['/au-resto-formula-au-resto', auRestoRecipe.auRestoFormula?.id]">{{auRestoRecipe.auRestoFormula?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.type">Type</span></dt>
+        <dd>
+            <div *ngIf="auRestoRecipe.type">
+                <a [routerLink]="['/au-resto-recipe-type-au-resto', auRestoRecipe.type?.id]">{{auRestoRecipe.type?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoRecipe.auRestoOrder">Au Resto Order</span></dt>
+        <dd>
+            <div *ngIf="auRestoRecipe.auRestoOrder">
+                <a [routerLink]="['/au-resto-order-au-resto', auRestoRecipe.auRestoOrder?.id]">{{auRestoRecipe.auRestoOrder?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-recipe-au-resto/'+ auRestoRecipe.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AuRestoPhoto.
+    -->
+    <changeSet id="20171015162523-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="au_resto_restaurant_id"
+                                 baseTableName="au_resto_photo"
+                                 constraintName="fk_au_resto_photo_au_resto_restaurant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_restaurant"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_menu_id"
+                                 baseTableName="au_resto_photo"
+                                 constraintName="fk_au_resto_photo_au_resto_menu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_menu"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_formula_id"
+                                 baseTableName="au_resto_photo"
+                                 constraintName="fk_au_resto_photo_au_resto_formula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_formula"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_recipe_id"
+                                 baseTableName="au_resto_photo"
+                                 constraintName="fk_au_resto_photo_au_resto_recipe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_recipe"/>
+
+    </changeSet>
+</databaseChangeLog>

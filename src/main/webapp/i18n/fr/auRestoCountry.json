@@ -1,0 +1,24 @@
+{
+    "auRestoApp": {
+        "auRestoCountry" : {
+            "home": {
+                "title": "AuRestoCountries",
+                "createLabel": "Créer un nouveau Au Resto Country",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Country",
+                "search": "Recherche pour Au Resto Country"
+            },
+            "created": "Un nouveau Au Resto Country a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Country avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Country avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Country {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Country"
+            },
+            "code": "Code",
+            "name": "Name",
+            "telCode": "Tel Code"
+        }
+    }
+}

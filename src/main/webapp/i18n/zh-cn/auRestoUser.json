@@ -1,0 +1,31 @@
+{
+    "auRestoApp": {
+        "auRestoUser" : {
+            "home": {
+                "title": "Au Resto Users",
+                "createLabel": "Create a new Au Resto User",
+                "createOrEditLabel": "Create or edit a Au Resto User",
+                "search": "Search for Au Resto User"
+            },
+            "created": "A new Au Resto User is created with identifier {{ param }}",
+            "updated": "A Au Resto User is updated with identifier {{ param }}",
+            "deleted": "A Au Resto User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto User {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto User"
+            },
+            "firstName": "First Name",
+            "middleName": "Middle Name",
+            "lastName": "Last Name",
+            "login": "Login",
+            "password": "Password",
+            "photo": "Photo",
+            "order": "Order",
+            "reservation": "Reservation",
+            "gender": "Gender",
+            "profile": "Profile"
+        }
+    }
+}

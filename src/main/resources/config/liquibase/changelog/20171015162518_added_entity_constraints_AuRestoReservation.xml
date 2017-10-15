@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AuRestoReservation.
+    -->
+    <changeSet id="20171015162518-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="commander_id"
+                                 baseTableName="au_resto_reservation"
+                                 constraintName="fk_au_resto_reservation_commander_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="au_resto_reservation"
+                                 constraintName="fk_au_resto_reservation_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_order_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="restaurant_id"
+                                 baseTableName="au_resto_reservation"
+                                 constraintName="fk_au_resto_reservation_restaurant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_restaurant"/>
+
+        <addForeignKeyConstraint baseColumnNames="table_id"
+                                 baseTableName="au_resto_reservation"
+                                 constraintName="fk_au_resto_reservation_table_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_table"/>
+
+        <addForeignKeyConstraint baseColumnNames="au_resto_user_id"
+                                 baseTableName="au_resto_reservation"
+                                 constraintName="fk_au_resto_reservation_au_resto_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="au_resto_user"/>
+
+    </changeSet>
+</databaseChangeLog>

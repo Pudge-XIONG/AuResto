@@ -1,0 +1,65 @@
+
+<div *ngIf="auRestoFormula">
+    <h2><span jhiTranslate="auRestoApp.auRestoFormula.detail.title">Au Resto Formula</span> {{auRestoFormula.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.title">Title</span></dt>
+        <dd>
+            <span>{{auRestoFormula.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.price">Price</span></dt>
+        <dd>
+            <span>{{auRestoFormula.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.auRestoMenu">Au Resto Menu</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.auRestoMenu">
+                <a [routerLink]="['/au-resto-menu-au-resto', auRestoFormula.auRestoMenu?.id]">{{auRestoFormula.auRestoMenu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.type">Type</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.type">
+                <a [routerLink]="['/au-resto-formula-type-au-resto', auRestoFormula.type?.id]">{{auRestoFormula.type?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.entree">Entree</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.entree">
+                <a [routerLink]="['/au-resto-recipe-au-resto', auRestoFormula.entree?.id]">{{auRestoFormula.entree?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.dish">Dish</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.dish">
+                <a [routerLink]="['/au-resto-recipe-au-resto', auRestoFormula.dish?.id]">{{auRestoFormula.dish?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.dessert">Dessert</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.dessert">
+                <a [routerLink]="['/au-resto-recipe-au-resto', auRestoFormula.dessert?.id]">{{auRestoFormula.dessert?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoFormula.auRestoOrder">Au Resto Order</span></dt>
+        <dd>
+            <div *ngIf="auRestoFormula.auRestoOrder">
+                <a [routerLink]="['/au-resto-order-au-resto', auRestoFormula.auRestoOrder?.id]">{{auRestoFormula.auRestoOrder?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-formula-au-resto/'+ auRestoFormula.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

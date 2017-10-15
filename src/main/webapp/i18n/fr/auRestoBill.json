@@ -1,0 +1,25 @@
+{
+    "auRestoApp": {
+        "auRestoBill" : {
+            "home": {
+                "title": "AuRestoBills",
+                "createLabel": "Créer un nouveau Au Resto Bill",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Bill",
+                "search": "Recherche pour Au Resto Bill"
+            },
+            "created": "Un nouveau Au Resto Bill a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Bill avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Bill avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Bill {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Bill"
+            },
+            "code": "Code",
+            "date": "Date",
+            "order": "Order",
+            "status": "Status"
+        }
+    }
+}

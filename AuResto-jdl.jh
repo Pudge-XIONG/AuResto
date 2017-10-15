@@ -179,7 +179,7 @@ relationship ManyToOne{
 //paginate JobHistory, Employee with infinite-scroll
 paginate AuRestoUser, AuRestoOrder, AuRestoReservation, AuRestoBill with pagination
 
-dto * with mapstruct
+// dto * with mapstruct
 
 // Set service options to all except few
 //service all with serviceImpl

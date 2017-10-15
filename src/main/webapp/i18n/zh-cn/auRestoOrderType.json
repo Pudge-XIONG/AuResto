@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoOrderType" : {
+            "home": {
+                "title": "Au Resto Order Types",
+                "createLabel": "Create a new Au Resto Order Type",
+                "createOrEditLabel": "Create or edit a Au Resto Order Type",
+                "search": "Search for Au Resto Order Type"
+            },
+            "created": "A new Au Resto Order Type is created with identifier {{ param }}",
+            "updated": "A Au Resto Order Type is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Order Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Order Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Order Type"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

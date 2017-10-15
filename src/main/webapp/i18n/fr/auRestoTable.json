@@ -1,0 +1,29 @@
+{
+    "auRestoApp": {
+        "auRestoTable" : {
+            "home": {
+                "title": "AuRestoTables",
+                "createLabel": "Créer un nouveau Au Resto Table",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Table",
+                "search": "Recherche pour Au Resto Table"
+            },
+            "created": "Un nouveau Au Resto Table a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Table avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Table avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Table {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Table"
+            },
+            "code": "Code",
+            "maxPlaceNum": "Max Place Num",
+            "takenPlaceNum": "Taken Place Num",
+            "window": "Window",
+            "outside": "Outside",
+            "floor": "Floor",
+            "available": "Available",
+            "auRestoRestaurant": "Au Resto Restaurant"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuRestoRecipeLabel" jhiTranslate="auRestoApp.auRestoRecipe.home.createOrEditLabel">Create or edit a Au Resto Recipe</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auRestoRecipe.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auRestoRecipe.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="auRestoRecipe.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="auRestoRecipe.description"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                [(ngModel)]="auRestoRecipe.comment"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="auRestoRecipe.price"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.auRestoFormula" for="field_auRestoFormula">Au Resto Formula</label>
+            <select class="form-control" id="field_auRestoFormula" name="auRestoFormula" [(ngModel)]="auRestoRecipe.auRestoFormula" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoFormulaOption.id === auRestoRecipe.auRestoFormula?.id ? auRestoRecipe.auRestoFormula : auRestoFormulaOption" *ngFor="let auRestoFormulaOption of aurestoformulas; trackBy: trackAuRestoFormulaById">{{auRestoFormulaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.type" for="field_type">Type</label>
+            <select class="form-control" id="field_type" name="type" [(ngModel)]="auRestoRecipe.type" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoRecipeTypeOption.id === auRestoRecipe.type?.id ? auRestoRecipe.type : auRestoRecipeTypeOption" *ngFor="let auRestoRecipeTypeOption of aurestorecipetypes; trackBy: trackAuRestoRecipeTypeById">{{auRestoRecipeTypeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="auRestoApp.auRestoRecipe.auRestoOrder" for="field_auRestoOrder">Au Resto Order</label>
+            <select class="form-control" id="field_auRestoOrder" name="auRestoOrder" [(ngModel)]="auRestoRecipe.auRestoOrder" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="auRestoOrderOption.id === auRestoRecipe.auRestoOrder?.id ? auRestoRecipe.auRestoOrder : auRestoOrderOption" *ngFor="let auRestoOrderOption of aurestoorders; trackBy: trackAuRestoOrderById">{{auRestoOrderOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

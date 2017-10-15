@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoOrderStatus" : {
+            "home": {
+                "title": "AuRestoOrderStatuses",
+                "createLabel": "Créer un nouveau Au Resto Order Status",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Order Status",
+                "search": "Recherche pour Au Resto Order Status"
+            },
+            "created": "Un nouveau Au Resto Order Status a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Order Status avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Order Status avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Order Status {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Order Status"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

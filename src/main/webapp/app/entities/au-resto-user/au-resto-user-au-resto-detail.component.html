@@ -1,0 +1,59 @@
+
+<div *ngIf="auRestoUser">
+    <h2><span jhiTranslate="auRestoApp.auRestoUser.detail.title">Au Resto User</span> {{auRestoUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.firstName">First Name</span></dt>
+        <dd>
+            <span>{{auRestoUser.firstName}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.middleName">Middle Name</span></dt>
+        <dd>
+            <span>{{auRestoUser.middleName}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{auRestoUser.lastName}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.login">Login</span></dt>
+        <dd>
+            <span>{{auRestoUser.login}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.password">Password</span></dt>
+        <dd>
+            <span>{{auRestoUser.password}}</span>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.photo">Photo</span></dt>
+        <dd>
+            <div *ngIf="auRestoUser.photo">
+                <a [routerLink]="['/au-resto-photo-au-resto', auRestoUser.photo?.id]">{{auRestoUser.photo?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.gender">Gender</span></dt>
+        <dd>
+            <div *ngIf="auRestoUser.gender">
+                <a [routerLink]="['/au-resto-gender-au-resto', auRestoUser.gender?.id]">{{auRestoUser.gender?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auRestoApp.auRestoUser.profile">Profile</span></dt>
+        <dd>
+            <div *ngIf="auRestoUser.profile">
+                <a [routerLink]="['/au-resto-profile-au-resto', auRestoUser.profile?.id]">{{auRestoUser.profile?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'au-resto-user-au-resto/'+ auRestoUser.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

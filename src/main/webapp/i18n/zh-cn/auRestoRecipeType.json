@@ -1,0 +1,23 @@
+{
+    "auRestoApp": {
+        "auRestoRecipeType" : {
+            "home": {
+                "title": "Au Resto Recipe Types",
+                "createLabel": "Create a new Au Resto Recipe Type",
+                "createOrEditLabel": "Create or edit a Au Resto Recipe Type",
+                "search": "Search for Au Resto Recipe Type"
+            },
+            "created": "A new Au Resto Recipe Type is created with identifier {{ param }}",
+            "updated": "A Au Resto Recipe Type is updated with identifier {{ param }}",
+            "deleted": "A Au Resto Recipe Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Au Resto Recipe Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Au Resto Recipe Type"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

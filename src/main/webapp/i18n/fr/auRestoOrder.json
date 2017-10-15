@@ -1,0 +1,32 @@
+{
+    "auRestoApp": {
+        "auRestoOrder" : {
+            "home": {
+                "title": "AuRestoOrders",
+                "createLabel": "Créer un nouveau Au Resto Order",
+                "createOrEditLabel": "Créer ou éditer un Au Resto Order",
+                "search": "Recherche pour Au Resto Order"
+            },
+            "created": "Un nouveau Au Resto Order a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Au Resto Order avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Au Resto Order avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Au Resto Order {{ id }} ?"
+            },
+            "detail": {
+                "title": "Au Resto Order"
+            },
+            "code": "Code",
+            "date": "Date",
+            "formula": "Formula",
+            "recipe": "Recipe",
+            "restaurant": "Restaurant",
+            "table": "Table",
+            "commander": "Commander",
+            "type": "Type",
+            "status": "Status",
+            "auRestoUser": "Au Resto User",
+            "auRestoBill": "Au Resto Bill"
+        }
+    }
+}

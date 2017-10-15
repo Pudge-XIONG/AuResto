@@ -1,0 +1,93 @@
+<div>
+    <h2>
+        <span jhiTranslate="auRestoApp.auRestoRecipe.home.title">Au Resto Recipes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-au-resto-recipe-au-resto" [routerLink]="['/', { outlets: { popup: ['au-resto-recipe-au-resto-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="auRestoApp.auRestoRecipe.home.createLabel">
+            Create new Au Resto Recipe
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'auRestoApp.auRestoRecipe.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="auRestoRecipes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.name">Name</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.description">Description</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.comment">Comment</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.price">Price</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.auRestoFormula">Au Resto Formula</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.type">Type</span></th>
+            <th><span jhiTranslate="auRestoApp.auRestoRecipe.auRestoOrder">Au Resto Order</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let auRestoRecipe of auRestoRecipes ;trackBy: trackId">
+                <td><a [routerLink]="['../au-resto-recipe-au-resto', auRestoRecipe.id ]">{{auRestoRecipe.id}}</a></td>
+                <td>{{auRestoRecipe.name}}</td>
+                <td>{{auRestoRecipe.description}}</td>
+                <td>{{auRestoRecipe.comment}}</td>
+                <td>{{auRestoRecipe.price}}</td>
+                <td>
+                    <div *ngIf="auRestoRecipe.auRestoFormula">
+                        <a [routerLink]="['../au-resto-formula-au-resto', auRestoRecipe.auRestoFormula?.id ]" >{{auRestoRecipe.auRestoFormula?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoRecipe.type">
+                        <a [routerLink]="['../au-resto-recipe-type-au-resto', auRestoRecipe.type?.id ]" >{{auRestoRecipe.type?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="auRestoRecipe.auRestoOrder">
+                        <a [routerLink]="['../au-resto-order-au-resto', auRestoRecipe.auRestoOrder?.id ]" >{{auRestoRecipe.auRestoOrder?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../au-resto-recipe-au-resto', auRestoRecipe.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'au-resto-recipe-au-resto/'+ auRestoRecipe.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'au-resto-recipe-au-resto/'+ auRestoRecipe.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
