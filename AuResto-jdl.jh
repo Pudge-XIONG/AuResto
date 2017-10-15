@@ -1,4 +1,4 @@
-entity AuResto_AuResto_Location{
+entity AuResto_Location{
                 address String,
                 latitude Double,
                 longitude Double
