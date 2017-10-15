@@ -1,26 +1,26 @@
-entity AuResto_Location{
+entity AuRestoLocation{
                 address String,
                 latitude Double,
                 longitude Double
 }
 
-entity AuResto_City {
+entity AuRestoCity {
                 name String,
                 postCode String
 }
 
-entity AuResto_Province {
+entity AuRestoProvince {
                 name String,
                 code String
 }
 
-entity AuResto_Country {
+entity AuRestoCountry {
                 code String,
                 name String,
                 telCode String,
 }
 
-entity AuResto_Restaurant {
+entity AuRestoRestaurant {
                 code String,
                 name String,
                 description TextBlob,
@@ -28,61 +28,61 @@ entity AuResto_Restaurant {
                 closeTime ZonedDateTime
 }
 
-entity AuResto_RestaurantType{
+entity AuRestoRestaurantType{
                 code String,
                 name String
 }
 
-entity AuResto_Menu{
+entity AuRestoMenu{
                 title String,
                 date ZonedDateTime
 }
 
-entity AuResto_Formula{
+entity AuRestoFormula{
                 title String,
                 price Double
 }
 
-entity AuResto_AuResto_FormulaType{
+entity AuRestoFormulaType{
                 code String,
                 name String
 }
 
-entity AuResto_Recipe{
+entity AuRestoRecipe{
                 name String,
                 description String,
                 comment String,
                 price Double
 }
 
-entity AuResto_RecipeType{
+entity AuRestoRecipeType{
                 code String,
                 name String
 }
 
-entity AuResto_Reservation{
+entity AuRestoReservation{
                 code String,
                 name String,
                 reserveDate ZonedDateTime,
                 reserveForDate ZonedDateTime
 }
 
-entity AuResto_Order{
+entity AuRestoOrder{
                 code String,
                 date ZonedDateTime
 }
 
-entity AuResto_OrderType{
+entity AuRestoOrderType{
                 code String,
                 name String
 }
 
-entity AuResto_OrderStatus{
+entity AuRestoOrderStatus{
                 code String,
                 name String
 }
 
-entity AuResto_Table{
+entity AuRestoTable{
                 code String,
                 maxPlaceNum Integer,
                 takenPlaceNum Integer,
@@ -92,13 +92,13 @@ entity AuResto_Table{
                 available Boolean
 }
 
-entity AuResto_Photo {
+entity AuRestoPhoto {
                 code String,
                 name String,
                 image ImageBlob
 }
 
-entity AuResto_User {
+entity AuRestoUser {
                 firstName String,
                 middleName String,
                 lastName String,
@@ -107,81 +107,81 @@ entity AuResto_User {
 }
 
 
-entity AuResto_Gender{
+entity AuRestoGender{
     code String,
     name String
 }
 
-entity AuResto_Profile{
+entity AuRestoProfile{
                 code String,
                 name String
 }
 
-entity AuResto_Bill{
+entity AuRestoBill{
                 code String,
                 date ZonedDateTime,
 }
 
-entity AuResto_BillStatus{
+entity AuRestoBillStatus{
                 code String,
                 name String
 }
 
 
 relationship OneToOne{
-                AuResto_User{photo} to AuResto_Photo,
-                AuResto_Restaurant{location} to AuResto_Location
+                AuRestoUser{photo} to AuRestoPhoto,
+                AuRestoRestaurant{location} to AuRestoLocation
 }
 
 relationship OneToMany {
-                AuResto_Restaurant{type} to AuResto_RestaurantType,
-                AuResto_Restaurant{photo} to AuResto_Photo,
-                AuResto_Restaurant{menu} to AuResto_Menu,
-                AuResto_Restaurant{table} to AuResto_Table,
-                AuResto_Menu{photo} to AuResto_Photo,
-                AuResto_Menu{formula} to AuResto_Formula,
-                AuResto_Formula{photo} to AuResto_Photo,
-                AuResto_Formula{recipe} to AuResto_Recipe,
-                AuResto_Recipe{photo} to AuResto_Photo,
-                AuResto_Bill{order} to AuResto_Order,
-                AuResto_Order{formula} to AuResto_Formula,
-                AuResto_Order{recipe} to AuResto_Recipe,
-                AuResto_User{order} to AuResto_Order,
-                AuResto_User{reservation} to AuResto_Reservation
+                AuRestoRestaurant{type} to AuRestoRestaurantType,
+                AuRestoRestaurant{photo} to AuRestoPhoto,
+                AuRestoRestaurant{menu} to AuRestoMenu,
+                AuRestoRestaurant{table} to AuRestoTable,
+                AuRestoMenu{photo} to AuRestoPhoto,
+                AuRestoMenu{formula} to AuRestoFormula,
+                AuRestoFormula{photo} to AuRestoPhoto,
+                AuRestoFormula{recipe} to AuRestoRecipe,
+                AuRestoRecipe{photo} to AuRestoPhoto,
+                AuRestoBill{order} to AuRestoOrder,
+                AuRestoOrder{formula} to AuRestoFormula,
+                AuRestoOrder{recipe} to AuRestoRecipe,
+                AuRestoUser{order} to AuRestoOrder,
+                AuRestoUser{reservation} to AuRestoReservation
 }
 
 relationship ManyToOne{
-                AuResto_Order{restaurant} to AuResto_Restaurant,
-                AuResto_Order{table} to AuResto_Table,
-                AuResto_Order{commander} to AuResto_User,
-                AuResto_Order{type} to AuResto_OrderType,
-                AuResto_Order{commander} to AuResto_User,
-                AuResto_Order{status} to AuResto_OrderStatus,
-                AuResto_Recipe{type} to AuResto_RecipeType,
-                AuResto_User{gender} to AuResto_Gender,
-                AuResto_User{profile} to AuResto_Profile,
-                AuResto_Restaurant{owner} to AuResto_User,
-                AuResto_Location{city} to AuResto_City,
-                AuResto_City{province} to AuResto_Province,
-                AuResto_Province{country} to AuResto_Country,
-                AuResto_Formula{type} to AuResto_AuResto_FormulaType,
-                AuResto_Formula{entree} to AuResto_Recipe,
-                AuResto_Formula{dish} to AuResto_Recipe,
-                AuResto_Formula{dessert} to AuResto_Recipe,
-                AuResto_Bill{status} to AuResto_BillStatus,
-                AuResto_Reservation{commander} to AuResto_User,
-                AuResto_Reservation{status} to AuResto_OrderStatus,
-                AuResto_Reservation{restaurant} to AuResto_Restaurant,
-                AuResto_Reservation{table} to AuResto_Table
+                AuRestoOrder{restaurant} to AuRestoRestaurant,
+                AuRestoOrder{table} to AuRestoTable,
+                AuRestoOrder{commander} to AuRestoUser,
+                AuRestoOrder{type} to AuRestoOrderType,
+                AuRestoOrder{commander} to AuRestoUser,
+                AuRestoOrder{status} to AuRestoOrderStatus,
+                AuRestoRecipe{type} to AuRestoRecipeType,
+                AuRestoUser{gender} to AuRestoGender,
+                AuRestoUser{profile} to AuRestoProfile,
+                AuRestoRestaurant{owner} to AuRestoUser,
+                AuRestoLocation{city} to AuRestoCity,
+                AuRestoCity{province} to AuRestoProvince,
+                AuRestoProvince{country} to AuRestoCountry,
+                AuRestoFormula{type} to AuRestoFormulaType,
+                AuRestoFormula{entree} to AuRestoRecipe,
+                AuRestoFormula{dish} to AuRestoRecipe,
+                AuRestoFormula{dessert} to AuRestoRecipe,
+                AuRestoBill{status} to AuRestoBillStatus,
+                AuRestoReservation{commander} to AuRestoUser,
+                AuRestoReservation{status} to AuRestoOrderStatus,
+                AuRestoReservation{restaurant} to AuRestoRestaurant,
+                AuRestoReservation{table} to AuRestoTable
 }
 
 // Set pagination options
 //paginate JobHistory, Employee with infinite-scroll
-paginate AuResto_User, AuResto_Order, AuResto_Reservation, AuResto_Bill with pagination
+paginate AuRestoUser, AuRestoOrder, AuRestoReservation, AuRestoBill with pagination
 
 dto * with mapstruct
 
 // Set service options to all except few
-service all with serviceImpl
+//service all with serviceImpl
 // Set an angular suffix
-angularSuffix * with auResto_
+angularSuffix * with AuResto
