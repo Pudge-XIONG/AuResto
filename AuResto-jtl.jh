@@ -98,7 +98,7 @@ entity Photo {
                 image ImageBlob
 }
 
-entity User {
+entity People {
                 firstName String,
                 middleName String,
                 lastName String,
@@ -130,7 +130,7 @@ entity BillStatus{
 
 
 relationship OneToOne{
-                User{photo} to Photo,
+                People{photo} to Photo,
                 Restaurant{location} to Location
 }
 
@@ -147,21 +147,21 @@ relationship OneToMany {
                 Bill{order} to Order,
                 Order{formula} to Formula,
                 Order{recipe} to Recipe,
-                User{order} to Order,
-                User{reservation} to Reservation
+                People{order} to Order,
+                People{reservation} to Reservation
 }
 
 relationship ManyToOne{
                 Order{restaurant} to Restaurant,
                 Order{table} to Table,
-                Order{commander} to User,
+                Order{commander} to People,
                 Order{type} to OrderType,
-                Order{commander} to User,
+                Order{commander} to People,
                 Order{status} to OrderStatus,
                 Recipe{type} to RecipeType,
-                User{gender} to Gender,
-                User{profile} to Profile,
-                Restaurant{owner} to User,
+                People{gender} to Gender,
+                People{profile} to Profile,
+                Restaurant{owner} to People,
                 Table{restaurant} to Restaurant,
                 Location{city} to City,
                 City{province} to Province,
@@ -171,8 +171,19 @@ relationship ManyToOne{
                 Formula{dish} to Recipe,
                 Formula{dessert} to Recipe,
                 Bill{status} to BillStatus,
-                Reservation{commander} to User,
+                Reservation{commander} to People,
                 Reservation{status} to OrderStatus,
                 Reservation{restaurant} to Restaurant,
                 Reservation{table} to Table
 }
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate People, Order, Reservation, Bill with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with auResto_
